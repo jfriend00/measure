@@ -1,4 +1,10 @@
+const { addCommas } = require("../str-utils");
+
+// for measuring in nanoseconds using process.hrtime.bigInt()
 class Bench {
+    static formatMsToSec(ms, decimals = 2) {
+        return addCommas((ms / 1000).toFixed(decimals));
+    }
     constructor() {
         this.cumT = 0n;
     }
