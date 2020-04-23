@@ -10,12 +10,17 @@ class Bench {
     }
     markBegin() {
         this.startT = process.hrtime.bigint();
+        return this;
     }
     markEnd() {
         this.cumT += process.hrtime.bigint() - this.startT;
+        return this;
     }
     get ns() {
         return this.cumT;
+    }
+    get nsN() {
+        return Number(this.cumT);
     }
     get ms() {
         return Number(this.cumT) / (1000 * 1000);
